@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TimeToDo</string>
+    <string name="zadaci">Zadaci</string>
+    <string name="novi_zadatak">Novi zadatak</string>
+    <string name="spremi">Spremi</string>
+    <string name="timetodo">TimeToDo</string>
+    <string name="delete_button" />
+</resources>
