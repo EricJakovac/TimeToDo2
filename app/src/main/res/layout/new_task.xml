@@ -38,12 +38,5 @@
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
-    <TextView
-        android:id="@+id/selectedTimeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
 
 </RelativeLayout>
