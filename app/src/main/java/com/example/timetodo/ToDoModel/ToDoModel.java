@@ -1,12 +1,10 @@
 package com.example.timetodo.ToDoModel;
 
-import java.time.LocalTime;
-
 public class ToDoModel {
     private int id;
     private int status;
     private String task;
-    private String dueTime; // Promijenjeno u String
+    private String dueTime;
 
     public int getId() {
         return id;
