@@ -119,7 +119,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                     db.insertTask(task);
                 }
             }
-            dismiss();
+            dismiss(); 
         });
 
         timePickerButton.setOnClickListener(v -> showTimePickerDialog());
