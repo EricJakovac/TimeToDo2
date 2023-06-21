@@ -65,7 +65,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
         newTaskText = requireView().findViewById(R.id.newTaskText);
         newTaskSaveButton = getView().findViewById(R.id.newTaskButton);
         timePickerButton = getView().findViewById(R.id.timePickerButton);
-        selectedTimeTextView = requireView().findViewById(R.id.selectedTimeTextView);
 
         boolean isUpdate = false;
 
@@ -89,7 +88,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.toString().equals("")) {
+                if (s.toString().isEmpty()) {
                     newTaskSaveButton.setEnabled(false);
                     newTaskSaveButton.setTextColor(Color.GRAY);
                 } else {
@@ -109,14 +108,16 @@ public class AddNewTask extends BottomSheetDialogFragment {
             if (finalIsUpdate) {
                 db.updateTask(bundle.getInt("id"), text);
             } else {
-                ToDoModel task = new ToDoModel();
-                task.setTask(text);
-                task.setStatus(0);
-                if (dueTime != null) {
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm", Locale.getDefault());
-                    task.setDueTime(dueTime.format(formatter));
+                if (!text.isEmpty()) {
+                    ToDoModel task = new ToDoModel();
+                    task.setTask(text);
+                    task.setStatus(0);
+                    if (dueTime != null) {
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm", Locale.getDefault());
+                        task.setDueTime(dueTime.format(formatter));
+                    }
+                    db.insertTask(task);
                 }
-                db.insertTask(task);
             }
             dismiss();
         });
